@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- autowiring using byName id name same as variable name -->
+<!-- <bean class="in.sp.beans.Address" id="address">
+<property name="houseno" value="111" />
+<property name="city" value="mahad" />
+<property name="pincode" value="644654" />
+</bean>
+
+<bean class="in.sp.beans.Student" id="stdId" autowire="byName">
+<property name="name" value="yash" />
+<property name="rollno" value="17" />
+</bean> -->
+
+    <!-- autowiring using byType example check type Address type And autowire-candidate use for selection of bean object  -->
+<bean class="in.sp.beans.Address" id="addr1" autowire-candidate="false">
+<property name="houseno" value="111" />
+<property name="city" value="mahad" />
+<property name="pincode" value="644654" />
+</bean>
+<bean class="in.sp.beans.Address" id="addr2" >
+<property name="houseno" value="222" />
+<property name="city" value="mumbai" />
+<property name="pincode" value="555554" />
+</bean>
+
+<bean class="in.sp.beans.Student" id="stdId" autowire="byType">
+<property name="name" value="yash" />
+<property name="rollno" value="17" />
+</bean>
+
+</beans>
