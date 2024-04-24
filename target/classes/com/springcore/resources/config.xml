@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util 
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!-- extra dependencies for standalone collectios -->
+<!-- xmlns:util="http://www.springframework.org/schema/util"
+           http://www.springframework.org/schema/util 
+           http://www.springframework.org/schema/util/spring-util.xsd -->
+           
+           
+	<!-- Standalone list -->
+	<util:list list-class="java.util.LinkedList" id="myfrd">
+	<value>yash</value>
+	<value>dinesh</value>
+	<value>jack</value>
+	<value>John</value>
+	</util:list>
+	
+	<util:map map-class="java.util.TreeMap"  id="cur">
+	<entry key="Python" value="2month"/>
+<entry key="Java" value="4month"/>
+<entry key="C++" value="6month"/>
+<entry key="C" value="8month"/>
+	</util:map>
+
+<util:properties id="dbconfig">
+<prop key="driver"> com.mysql.jdbc.Driver</prop>
+<prop key="username"> root</prop>
+<prop key="password">1234</prop>
+<prop key="url">mysql:jdbc://localhost:3306/emp</prop>
+</util:properties>
+
+	<bean class="com.springcore.beans.Person" id="person1">
+		<property name="friends" ref="myfrd" />
+		<property name="courses" ref="cur" />
+		<property name="properties" ref="dbconfig"/>
+	</bean>
+</beans>
